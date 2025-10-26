@@ -31,8 +31,6 @@ const ProductDetail = ({ language }: ProductDetailProps) => {
     );
   }
 
-  const imageUrl = `https://images.unsplash.com/photo-${1500000000000 + parseInt(product.id) * 10000000}?w=800&h=600&fit=crop`;
-
   return (
     <div className="min-h-screen py-8">
       <div className="container mx-auto px-4">
@@ -47,7 +45,7 @@ const ProductDetail = ({ language }: ProductDetailProps) => {
           {/* Product Image */}
           <div>
             <img
-              src={imageUrl}
+              src={product.image}
               alt={language === "en" ? product.name : product.nameHi}
               className="w-full rounded-lg shadow-medium"
             />

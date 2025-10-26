@@ -27,15 +27,12 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, language }: ProductCardProps) => {
-  // Generate placeholder image based on product id
-  const imageUrl = `https://images.unsplash.com/photo-${1500000000000 + parseInt(product.id) * 10000000}?w=400&h=300&fit=crop`;
-
   return (
     <Card className="group overflow-hidden hover:shadow-medium transition-all duration-300 animate-fade-in">
       <Link to={`/product/${product.id}`}>
         <div className="relative overflow-hidden aspect-[4/3]">
           <img
-            src={imageUrl}
+            src={product.image}
             alt={language === "en" ? product.name : product.nameHi}
             className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
