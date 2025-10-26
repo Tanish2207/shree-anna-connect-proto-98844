@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Users, Heart, TrendingUp } from "lucide-react";
+import farmerCommunity from "@/assets/farmer-community.jpg";
 
 interface AboutProps {
   language: string;
@@ -64,7 +65,7 @@ const About = ({ language }: AboutProps) => {
     <div className="min-h-screen py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             {language === "en" ? "About Shree Anna Connect" : "श्री अन्न कनेक्ट के बारे में"}
           </h1>
@@ -73,6 +74,15 @@ const About = ({ language }: AboutProps) => {
               ? "Building India's most trusted millet marketplace ecosystem"
               : "भारत का सबसे विश्वसनीय मिलेट मार्केटप्लेस पारिस्थितिकी तंत्र बनाना"}
           </p>
+        </div>
+
+        {/* Hero Image */}
+        <div className="mb-16">
+          <img
+            src={farmerCommunity}
+            alt="Farmer community in millet field"
+            className="w-full h-[400px] object-cover rounded-lg shadow-strong"
+          />
         </div>
 
         {/* Stats */}

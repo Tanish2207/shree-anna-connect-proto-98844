@@ -11,6 +11,10 @@ import {
   Award,
 } from "lucide-react";
 import milletVarieties from "@/assets/millet-varieties.jpg";
+import foxtailMillet from "@/assets/foxtail-millet.jpg";
+import pearlMillet from "@/assets/pearl-millet.jpg";
+import fingerMillet from "@/assets/finger-millet.jpg";
+import sorghumMillet from "@/assets/sorghum-millet.jpg";
 
 interface LearnProps {
   language: string;
@@ -21,6 +25,7 @@ const Learn = ({ language }: LearnProps) => {
     {
       name: "Foxtail Millet",
       nameHi: "कंगनी",
+      image: foxtailMillet,
       benefits: [
         language === "en" ? "Rich in protein and fiber" : "प्रोटीन और फाइबर से भरपूर",
         language === "en" ? "Helps in weight management" : "वजन प्रबंधन में मदद करता है",
@@ -30,6 +35,7 @@ const Learn = ({ language }: LearnProps) => {
     {
       name: "Pearl Millet (Bajra)",
       nameHi: "बाजरा",
+      image: pearlMillet,
       benefits: [
         language === "en" ? "High in iron and magnesium" : "आयरन और मैग्नीशियम में उच्च",
         language === "en" ? "Boosts energy levels" : "ऊर्जा स्तर बढ़ाता है",
@@ -39,6 +45,7 @@ const Learn = ({ language }: LearnProps) => {
     {
       name: "Finger Millet (Ragi)",
       nameHi: "रागी",
+      image: fingerMillet,
       benefits: [
         language === "en" ? "Excellent source of calcium" : "कैल्शियम का उत्कृष्ट स्रोत",
         language === "en" ? "Strengthens bones" : "हड्डियों को मजबूत करता है",
@@ -48,6 +55,7 @@ const Learn = ({ language }: LearnProps) => {
     {
       name: "Sorghum (Jowar)",
       nameHi: "ज्वार",
+      image: sorghumMillet,
       benefits: [
         language === "en" ? "Rich in antioxidants" : "एंटीऑक्सीडेंट से भरपूर",
         language === "en" ? "Gluten-free grain" : "ग्लूटेन मुक्त अनाज",
@@ -207,7 +215,14 @@ const Learn = ({ language }: LearnProps) => {
           <TabsContent value="types">
             <div className="grid md:grid-cols-2 gap-6">
               {milletTypes.map((millet, index) => (
-                <Card key={index} className="shadow-medium animate-fade-in">
+                <Card key={index} className="shadow-medium animate-fade-in overflow-hidden">
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={millet.image}
+                      alt={`${millet.name} - ${millet.nameHi}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
                       <span>{millet.name}</span>

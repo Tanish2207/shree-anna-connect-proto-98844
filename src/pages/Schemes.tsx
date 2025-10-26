@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Award, Building, Users, TrendingUp } from "lucide-react";
 import schemesData from "@/data/schemes.json";
+import schemeSuccess from "@/assets/scheme-success.jpg";
 
 interface SchemesProps {
   language: string;
@@ -42,28 +43,32 @@ const Schemes = ({ language }: SchemesProps) => {
           </p>
         </div>
 
-        {/* Info Banner */}
-        <Card className="mb-12 gradient-card shadow-medium border-l-4 border-l-primary">
-          <CardContent className="p-6">
-            <div className="flex items-start gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Award className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
+        {/* Success Story Banner */}
+        <div className="mb-12 relative rounded-lg overflow-hidden shadow-strong">
+          <img
+            src={schemeSuccess}
+            alt="Farmer success with government schemes"
+            className="w-full h-[300px] object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="container mx-auto px-8">
+              <div className="max-w-2xl text-primary-foreground">
+                <Award className="h-12 w-12 mb-4" />
+                <h2 className="text-3xl font-bold mb-3">
                   {language === "en"
                     ? "National Millet Mission Support"
                     : "राष्ट्रीय मिलेट मिशन समर्थन"}
-                </h3>
-                <p className="text-muted-foreground">
+                </h2>
+                <p className="text-lg opacity-95">
                   {language === "en"
                     ? "The Government of India has launched multiple initiatives to support millet cultivation, processing, and marketing. Take advantage of these schemes to grow your agricultural business."
                     : "भारत सरकार ने बाजरा की खेती, प्रसंस्करण और विपणन का समर्थन करने के लिए कई पहल शुरू की हैं। अपने कृषि व्यवसाय को बढ़ाने के लिए इन योजनाओं का लाभ उठाएं।"}
                 </p>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
         {/* Schemes Grid */}
         <div className="grid md:grid-cols-2 gap-6">

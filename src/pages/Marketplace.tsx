@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { Search, Filter, X } from "lucide-react";
 import productsData from "@/data/products.json";
+import marketplaceScene from "@/assets/marketplace-scene.jpg";
 
 interface MarketplaceProps {
   language: string;
@@ -76,18 +77,32 @@ const Marketplace = ({ language }: MarketplaceProps) => {
   const hasActiveFilters = searchTerm || selectedType !== "all" || selectedCategory !== "all" || priceRange !== "all";
 
   return (
-    <div className="min-h-screen py-8">
-      <div className="container mx-auto px-4">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">
-            {language === "en" ? "Marketplace" : "बाज़ार"}
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            {language === "en"
-              ? "Discover premium quality millets and millet-based products"
-              : "प्रीमियम गुणवत्ता वाले बाजरे और बाजरा आधारित उत्पादों की खोज करें"}
-          </p>
+    <div className="min-h-screen">
+      {/* Hero Banner */}
+      <div className="relative h-[300px] mb-8 overflow-hidden">
+        <img
+          src={marketplaceScene}
+          alt="Millet marketplace"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl text-primary-foreground">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                {language === "en" ? "Marketplace" : "बाज़ार"}
+              </h1>
+              <p className="text-xl opacity-95">
+                {language === "en"
+                  ? "Discover premium quality millets and millet-based products"
+                  : "प्रीमियम गुणवत्ता वाले बाजरे और बाजरा आधारित उत्पादों की खोज करें"}
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div className="container mx-auto px-4 pb-8">
 
         {/* Filters */}
         <div className="bg-muted/30 rounded-lg p-6 mb-8 shadow-soft">
